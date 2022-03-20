@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { SearchResult } from '@services/omdb/types';
@@ -9,7 +8,7 @@ import { generateSearchMoviePath } from '@helpers/search';
 
 const Card: FC<SearchResult> = ({ Title, Year, imdbID, Type, Poster }) => (
     <article>
-        {Poster && 
+        {Poster &&
             <div className="image__wrapper">
                 <img src={Poster} alt={`${Title} Poster`} width={300} height={400} />
             </div>

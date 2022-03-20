@@ -9,7 +9,7 @@ const { OMDB_API_URL, OMDB_API_KEY } = publicRuntimeConfig ?? {};
 
 
 // request search data
-export const getBySearch = async (data: GetBySearchReqBody):  Promise<GetBySearchResBody>  => {
+export const getBySearch = async (data: GetBySearchReqBody): Promise<GetBySearchResBody> => {
     const endpoint = queryString.stringifyUrl({
         url: OMDB_API_URL,
         query: {

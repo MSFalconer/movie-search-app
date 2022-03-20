@@ -6,9 +6,9 @@ import { useDebounce } from '@hooks';
 
 import Results from './Results';
 
-interface Props {};
+interface Props { };
 
-const Search: FC<Props> = ({}) => {
+const Search: FC<Props> = ({ }) => {
     const [{ results, total }, setResults] = useState({
         results: [],
         total: null,
@@ -20,13 +20,13 @@ const Search: FC<Props> = ({}) => {
     // TODO: that would also include loading & error states
     useEffect(() => {
         // if there is a search term, request search data
-    if (debouncedSearchTerm) {
-        (async() => {
-            const { Search: results, totalResults: total } = await getBySearch({s: debouncedSearchTerm });
-            setResults((state) => ({ ...state, results, total }))
-        })();
-        // when theres no search term, set state back to defaults
-    } else setResults({results: [], total: null });
+        if (debouncedSearchTerm) {
+            (async () => {
+                const { Search: results, totalResults: total } = await getBySearch({ s: debouncedSearchTerm });
+                setResults((state) => ({ ...state, results, total }))
+            })();
+            // when theres no search term, set state back to defaults
+        } else setResults({ results: [], total: null });
         // debounce search term value set as the dependencies
         // so the useEffect is only triggered an optimal amount of times
     }, [debouncedSearchTerm])
@@ -46,6 +46,6 @@ const Search: FC<Props> = ({}) => {
         </section>
     )
 
-} 
+}
 
 export default Search;

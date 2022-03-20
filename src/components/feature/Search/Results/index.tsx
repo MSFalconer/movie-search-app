@@ -12,11 +12,11 @@ interface Props {
 const Results: FC<Props> = ({ results, total }) => (
     <section>
         <ul>
-        {results?.map(({Title, ...rest}, index) => (
-            <li key={`${Title}-${index}`}>
-                <Card Title={Title} {...rest} />
-            </li>
-        ))}
+            {results?.map(({ Title, ...rest }, index) => (
+                <li key={`${Title}-${index}`}>
+                    <Card Title={Title} {...rest} />
+                </li>
+            ))}
         </ul>
     </section>
 );

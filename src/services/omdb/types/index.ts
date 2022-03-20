@@ -1,5 +1,5 @@
-export type MediaType  = 'movie' | 'series' | 'episode';    
-export interface SearchResult  {
+export type MediaType = 'movie' | 'series' | 'episode';
+export interface SearchResult {
     Title: string;
     Year: string;
     imdbID: string;
@@ -11,7 +11,7 @@ export interface FullResult extends SearchResult {
     Plot: string;
     Actors: string;
     Release: string;
-    Runtime:string;
+    Runtime: string;
     Genre: string;
 }
 
