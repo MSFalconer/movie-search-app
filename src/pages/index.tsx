@@ -2,6 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 
+import Search from '@components/feature/Search';
+
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +15,7 @@ const Home: NextPage = () => {
       </Head>
 
       <h1>movie search app</h1>
+      <Search />
     </div>
   )
 }
