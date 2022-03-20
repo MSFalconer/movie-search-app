@@ -32,14 +32,14 @@ npm run start
 ## Checklist
 
 - [x] setup initial project 
-- [] setup OMDb endpoints `By Search` & `By ID`
+- [x] setup OMDb endpoints `By Search` & `By ID`
 - [] add tests for both OMDb endpoints
-- [] setup feature `Search` component
+- [x] setup feature `Search` component
     - [] read over form/labeling W3 accessability - https://www.w3.org/WAI/tutorials/forms/labels/
-    - [] search input will update state on `onChange` & `onBlur` will need to add debouce. example here - https://usehooks.com/useDebounce/
+    - [x] search input will update state on `onChange` will need to add debouce. example here - https://usehooks.com/useDebounce/
     - [] add `useMemo` on input value to ensure minimal rerenders/rerequests
-    - [] add `useEffect` with dependency of search input value (memo value), will request search data
-    - [] add subcomponent `Results` map search results to `Card` to display to the user
+    - [x] add `useEffect` with dependency of search input value (memo value), will request search data
+    - [x] add subcomponent `Results` map search results to `Card` to display to the user
 - [] setup shared `Input` component
 - [] setup shared `Card` component - to display movie result, will have link so a user can see more information about the film
 - [] setup dynamic route `film/[id]` for when a user want to see more detail about the film, will be SSR and call `By ID` endpoint

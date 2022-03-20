@@ -1,4 +1,3 @@
-
 enum MediaType {    
     movie = 'movie',
     series = 'series',
@@ -14,6 +13,20 @@ export interface GetBySearchReqBody {
      * media type
      */
     type?: MediaType;
+}
+
+export type SearchResult = {
+    Title: string;
+    Year: string;
+    imdbID: string;
+    Type: string;
+    Poster: string;
+}
+
+export interface GetBySearchResBody {
+    Search: SearchResult[];
+    totalResults: number;
+    Response: boolean;
 }
 
 export interface GetByIdReqBody {
