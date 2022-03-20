@@ -49,13 +49,11 @@ const Search = () => {
     return (
         <Wrapper>
             <header>
-                <form>
-                    <InputWrapper>
-                        <label htmlFor="search">Search</label>
-                        <input type="search" id="search" name="search" data-testid="search-input" placeholder="search for a movie..." onChange={(event) => setSearchTerm(event.target.value)} />
-                    </InputWrapper>
-                    {error && <p>{error}</p>}
-                </form>
+                <InputWrapper>
+                    <label htmlFor="search">Search</label>
+                    <input type="search" id="search" name="search" data-testid="search-input" placeholder="search for a movie..." onChange={(event) => setSearchTerm(event.target.value)} />
+                </InputWrapper>
+                {error && <p>{error}</p>}
             </header>
             <div>
                 {results && total && <Results results={results} total={total} />}

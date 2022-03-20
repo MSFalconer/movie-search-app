@@ -48,8 +48,10 @@ npm run start
 ## Improvements
 
 - [] refactor parts of the Search component to use useReducer instead of state to make it clearer/easier & also add loading/error states in
+- [] add ability to append search query and set as default on page load
 - [] add tests in for both `getBySearch` & `getById`, successful & failing requests to ensure correct data is being passed back - would have mocked each endpoint or looked at using mock service worker
 - [] add tests for `Search` using react testing library would have tested input functionality
+- [] add e2e testing user journey from hitting homepage, typing a search query, then selecting a film & ensure rerouted to the correct page with film data displaying
 
 ## New features
  - [] allow users to also select what type of media to search by currently only set for movie
