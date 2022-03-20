@@ -1,10 +1,4 @@
-enum MediaType {    
-    movie = 'movie',
-    series = 'series',
-    episode = 'episode',
-}
-
-
+export type MediaType  = 'movie' | 'series' | 'episode';    
 export interface SearchResult  {
     Title: string;
     Year: string;
