@@ -4,13 +4,15 @@ import { SearchResult } from '@services/omdb/types';
 
 import Card from 'components/shared/Card';
 
+import { Wrapper } from './style';
+
 interface Props {
     results: SearchResult[],
     total: number | null;
 };
 
 const Results: FC<Props> = ({ results, total }) => (
-    <section>
+    <Wrapper>
         <ul>
             {results?.map(({ Title, ...rest }, index) => (
                 <li key={`${Title}-${index}`}>
@@ -18,7 +20,7 @@ const Results: FC<Props> = ({ results, total }) => (
                 </li>
             ))}
         </ul>
-    </section>
+    </Wrapper>
 );
 
 export default Results;

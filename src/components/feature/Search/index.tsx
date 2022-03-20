@@ -6,12 +6,17 @@ import { SearchResult } from '@services/omdb/types';
 import { useDebounce } from '@hooks';
 
 import Results from './Results';
+import { Wrapper, InputWrapper } from './style';
 
-interface Props { };
+interface SearchState {
+    results: SearchResult[] | [];
+    total: number | null;
+    error?: string
+}
 
-const Search: FC<Props> = ({ }) => {
+const Search = () => {
     //TODO: on reflection & more time I would refactor this into a useReducer
-    const [{ results, total, error }, setResults] = useState<{ results: SearchResult[] | []; total: number | null; error?: string }>({
+    const [{ results, total, error }, setResults] = useState<SearchState>({
         results: [],
         total: null,
         error: '',
@@ -41,22 +46,21 @@ const Search: FC<Props> = ({ }) => {
         // so the useEffect is only triggered an optimal amount of times
     }, [searchTermMemo]);
 
-    console.log(error)
-
     return (
-        <section>
-            <form>
-                <div>
-                    <label htmlFor="search">Search</label>
-                    <input type="search" id="search" name="search" data-testid="search-input" placeholder="search for a movie..." onChange={(event) => setSearchTerm(event.target.value)} />
-                </div>
-                {error && <p>{error}</p>}
-            </form>
-
+        <Wrapper>
+            <header>
+                <form>
+                    <InputWrapper>
+                        <label htmlFor="search">Search</label>
+                        <input type="search" id="search" name="search" data-testid="search-input" placeholder="search for a movie..." onChange={(event) => setSearchTerm(event.target.value)} />
+                    </InputWrapper>
+                    {error && <p>{error}</p>}
+                </form>
+            </header>
             <div>
                 {results && total && <Results results={results} total={total} />}
             </div>
-        </section>
+        </Wrapper>
     )
 
 }
