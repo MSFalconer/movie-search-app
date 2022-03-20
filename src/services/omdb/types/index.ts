@@ -3,7 +3,7 @@ export interface SearchResult {
     Title: string;
     Year: string;
     imdbID: string;
-    Type: string;
+    Type: MediaType;
     Poster: string;
 }
 
@@ -29,7 +29,11 @@ export interface GetBySearchReqBody {
 export interface GetBySearchResBody {
     Search: SearchResult[];
     totalResults: number;
-    Response: boolean;
+    /**
+     * should really be boolean but these values are coming through the API
+     */
+    Response: 'True' | 'False';
+    Error?: string;
 }
 
 export interface GetByIdReqBody {
@@ -37,9 +41,7 @@ export interface GetByIdReqBody {
      * A valid IMDb ID (e.g. tt1285016)
      */
     i: string;
-    // /**
-    //  * 	Movie title to search for.
-    //  */
+    // TODO: add t so films can be searched by title
     // t?: string;
     /**
      * media type
