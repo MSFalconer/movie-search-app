@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 import Search from '@components/feature/Search';
 
-
 const Home: NextPage = () => {
   return (
     <div>

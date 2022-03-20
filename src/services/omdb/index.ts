@@ -2,14 +2,14 @@
 import getConfig from 'next/config';
 import queryString from 'query-string';
 
-import { GetBySearchReqBody, GetByIdReqBody } from './types';
+import { GetBySearchReqBody, GetBySearchResBody, GetByIdReqBody, GetByIdResBody } from './types';
 
 const { publicRuntimeConfig } = getConfig();
 const { OMDB_API_URL, OMDB_API_KEY } = publicRuntimeConfig ?? {};
 
 
 // request search data
-export const getBySearch = async (data: GetBySearchReqBody) => {
+export const getBySearch = async (data: GetBySearchReqBody):  Promise<GetBySearchResBody>  => {
     const endpoint = queryString.stringifyUrl({
         url: OMDB_API_URL,
         query: {
@@ -24,7 +24,7 @@ export const getBySearch = async (data: GetBySearchReqBody) => {
 };
 
 // request film byId data
-export const getById = async (data: GetByIdReqBody) => {
+export const getById = async (data: GetByIdReqBody): Promise<GetByIdResBody> => {
     const endpoint = queryString.stringifyUrl({
         url: OMDB_API_URL,
         query: {

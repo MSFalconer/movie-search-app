@@ -4,6 +4,23 @@ enum MediaType {
     episode = 'episode',
 }
 
+
+export interface SearchResult  {
+    Title: string;
+    Year: string;
+    imdbID: string;
+    Type: string;
+    Poster: string;
+}
+
+export interface FullResult extends SearchResult {
+    Plot: string;
+    Actors: string;
+    Release: string;
+    Runtime:string;
+    Genre: string;
+}
+
 export interface GetBySearchReqBody {
     /**
      * Movie title to search for.
@@ -13,14 +30,6 @@ export interface GetBySearchReqBody {
      * media type
      */
     type?: MediaType;
-}
-
-export type SearchResult = {
-    Title: string;
-    Year: string;
-    imdbID: string;
-    Type: string;
-    Poster: string;
 }
 
 export interface GetBySearchResBody {
@@ -33,14 +42,18 @@ export interface GetByIdReqBody {
     /**
      * A valid IMDb ID (e.g. tt1285016)
      */
-    i?: string;
-    /**
-     * 	Movie title to search for.
-     */
-    t?: string;
+    i: string;
+    // /**
+    //  * 	Movie title to search for.
+    //  */
+    // t?: string;
     /**
      * media type
      */
     type?: MediaType;
 
+}
+
+export interface GetByIdResBody extends FullResult {
+    Response: boolean;
 }
